@@ -1,3 +1,4 @@
+{%  extends 'main.html' %}
 {% block content %}
 
 
@@ -7,11 +8,31 @@
 
 			<form action="" method="POST">
 				{% csrf_token %}
-			
+                {{ form.management_form }}
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text">{{form.title.label}}<i class="fas fa-user"></i></span>
+                    </div>
+                    {{form.title}}
+                </div>
+                <div class="form-group">
+                    {{form.content.label}}
+                    {{form.content}}
+                  </div>
+                
+                
+
+                <div class="form-group col-md-4">
+                    <label for="inputState">{{form.author.label}}</label>
+                    {{form.author}}
+                  </div>
+                
+               
 					<hr>
 				
 				
-				<input type="submit" name="Submit">
+                <input class="btn btn-sm btn-info" type="submit" name="Submit">
+                <td><a class="btn btn-sm btn-primary" href="{% url 'home' %}">Cancel</a></td>
 			</form>
 
 		</div>
